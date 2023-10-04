@@ -1,0 +1,6 @@
+.button-primary {
+	@apply text-white bg-primary;
+}
+.button-secondary {
+	@apply text-white bg-information;
+}

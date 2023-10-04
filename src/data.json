@@ -1,0 +1,153 @@
+{
+	"category": {
+		"popular": [
+			{
+				"name": "Koenigsegg",
+				"type": "Sport",
+				"img": "/images/cars/car-koenigsegg.png",
+				"details": {
+					"gasoline": 90,
+					"steering": "Manual",
+					"capacity": 2
+				},
+				"price": 99.0,
+				"discountPrice": null
+			},
+			{
+				"name": "Nissan GT-R",
+				"type": "Sport",
+				"img": "/images/cars/car-nissan-gt-r.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 2
+				},
+				"price": 100.0,
+				"discountPrice": 80.0
+			},
+			{
+				"name": "Rolls - Royce",
+				"type": "Sedan",
+				"img": "/images/cars/car-rolls-royce.png",
+				"details": {
+					"gasoline": 70,
+					"steering": "Manual",
+					"capacity": 4
+				},
+				"price": 96.0,
+				"discountPrice": null
+			},
+			{
+				"name": "Nissan GT-R",
+				"type": "Sport",
+				"img": "/images/cars/car-nissan-gt-r.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 2
+				},
+				"price": 100.0,
+				"discountPrice": 80.0
+			}
+		],
+
+		"recomendation": [
+			{
+				"name": "All New Rush",
+				"type": "SUV",
+				"img": "/images/cars/car-all-new-rush.png",
+				"details": {
+					"gasoline": 70,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 80.0,
+				"discountPrice": 72.0
+			},
+			{
+				"name": "CR - V",
+				"type": "SUV",
+				"img": "/images/cars/car-cr-v-brown.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 80.0,
+				"discountPrice": null
+			},
+			{
+				"name": "All New Terios",
+				"type": "SUV",
+				"img": "/images/cars/car-all-new-terios.png",
+				"details": {
+					"gasoline": 90,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 74.0,
+				"discountPrice": null
+			},
+			{
+				"name": "CR - V",
+				"type": "SUV",
+				"img": "/images/cars/car-cr-v-black.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 80.0,
+				"discountPrice": null
+			},
+			{
+				"name": "MG ZX Exclusive",
+				"type": "Hatchback",
+				"img": "/images/cars/car-mg-zx-exclusive.png",
+				"details": {
+					"gasoline": 70,
+					"steering": "Manual",
+					"capacity": 4
+				},
+				"price": 80.0,
+				"discountPrice": 76.0
+			},
+			{
+				"name": "New MG ZS",
+				"type": "SUV",
+				"img": "/images/cars/car-new-mg-zs-white.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 80.0,
+				"discountPrice": null
+			},
+			{
+				"name": "New MG ZX Excite",
+				"type": "Hatchback",
+				"img": "/images/cars/car-mg-zx-excite.png",
+				"details": {
+					"gasoline": 90,
+					"steering": "Manual",
+					"capacity": 4
+				},
+				"price": 74.0,
+				"discountPrice": null
+			},
+			{
+				"name": "New MG ZS",
+				"type": "SUV",
+				"img": "/images/cars/car-new-mg-zs-silver.png",
+				"details": {
+					"gasoline": 80,
+					"steering": "Manual",
+					"capacity": 6
+				},
+				"price": 80.0,
+				"discountPrice": null
+			}
+		]
+	}
+}
