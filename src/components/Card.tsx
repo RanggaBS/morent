@@ -1,13 +1,14 @@
 "use client";
 
-import { BsFillFuelPumpFill } from "react-icons/bs";
-import { RiSteeringLine } from "react-icons/ri";
-import { FaUserFriends } from "react-icons/fa";
-import { AiFillHeart, AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
+import { BsFillFuelPumpFill } from "react-icons/bs"; // works
+// import { BsFillFuelPumpFill } from "@react-icons/all-files/bs/BsFillFuelPump_not_found"; // stupid library, the icon not exist
+import { RiSteeringLine } from "@react-icons/all-files/ri/RiSteeringLine";
+import { FaUserFriends } from "@react-icons/all-files/fa/FaUserFriends";
+import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
+import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
+import { AiTwotoneHeart } from "@react-icons/all-files/ai/AiTwotoneHeart";
 import Image from "next/image";
 import { useState } from "react";
-import Heart from "react-animated-heart";
-import { type URL } from "url";
 import { formatCurrency } from "@/utils";
 import Button from "./ui/Button";
 
@@ -69,7 +70,7 @@ const Card = ({
 	const [liked, setLiked] = useState(false);
 
 	return (
-		<div className="max-w-[240px] rounded-lg bg-white p-4">
+		<div className="max-w-[240px] max-h-[286px] flex flex-col justify-between h-full rounded-lg bg-white p-4">
 			{/* Heading */}
 			<div className="flex items-start justify-between">
 				{/* Title */}
@@ -112,12 +113,12 @@ const Card = ({
 					alt={name + " car"}
 					width={999}
 					height={999}
-					className="w-full h-auto py-8"
+					className="px-2 py-8 mx-auto"
 				/>
 
 				{/* Car Details */}
 				<ul className="flex items-center justify-between pb-6 text-xs">
-					{Object.keys(details).map((key, index) => {
+					{Object.keys(details)?.map((key, index) => {
 						return (
 							<li key={index}>
 								<CarDetailsItem

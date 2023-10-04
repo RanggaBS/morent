@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Button from "@/components/ui/Button";
-import HeroCarCards from "@/components/HeroCarCards";
-import { ArrowUpDown, ChevronDown } from "lucide-react";
+import HeroCards from "@/components/HeroCards";
+import { LuArrowUpDown, LuChevronDown } from "react-icons/lu";
 import Link from "next/link";
 import data from "@/data.json";
 import Card, { CardProps } from "@/components/Card";
 import CarList from "@/components/CarList";
+import { shuffleArray } from "@/utils";
 
 // Pick Up & Drop Off
 const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
@@ -38,7 +39,7 @@ const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 				<div className="flex items-center text-xs">
 					<p>{input.dropdownPlaceholder}</p>
 
-					<ChevronDown className="h-full" />
+					<LuChevronDown className="h-full" />
 				</div>
 			</div>
 		);
@@ -71,7 +72,7 @@ export const Hero = () => {
 	return (
 		<section id="hero">
 			{/* Cards */}
-			<HeroCarCards />
+			<HeroCards />
 
 			{/* Pick-Up & Drop-Off */}
 			<div className="flex flex-col pb-8 mx-6">
@@ -81,7 +82,7 @@ export const Hero = () => {
 					intent="primary"
 					className="flex-grow-0 w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10"
 				>
-					<ArrowUpDown className="w-6 h-6 mx-auto" />
+					<LuArrowUpDown className="w-6 h-6 mx-auto" />
 				</Button>
 
 				<PickUpDropOff name="Drop - Off" />
@@ -92,8 +93,8 @@ export const Hero = () => {
 
 export const PopularCar = () => {
 	return (
-		<div className="ml-6">
-			<div className="flex items-center justify-between pb-6 text-sm">
+		<div className="pb-8 ml-6">
+			<div className="flex items-center justify-between pb-4 mr-6 text-sm">
 				<h2 className="text-sm font-semibold">Popular Car</h2>
 
 				<Link
@@ -104,7 +105,19 @@ export const PopularCar = () => {
 				</Link>
 			</div>
 
-			<CarList data={data.category.popular} />
+			<CarList data={shuffleArray(data.category.popular)} />
+		</div>
+	);
+};
+
+export const RecomendationCar = () => {
+	return (
+		<div className="mx-6">
+			<h2 id="recomendation" className="pb-4 text-sm font-semibold">
+				Recomendation Car
+			</h2>
+
+			<CarList data={shuffleArray(data.category.recomendation)} />
 		</div>
 	);
 };
@@ -118,6 +131,8 @@ export default function Home() {
 				<Hero />
 
 				<PopularCar />
+
+				<RecomendationCar />
 			</main>
 		</div>
 	);

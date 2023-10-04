@@ -36,3 +36,7 @@ next-env.d.ts
 
 # lain-lain
 _dev
+
+.git
+.env
+.npmrc

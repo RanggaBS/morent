@@ -1,6 +1,7 @@
 "use client";
 
 import Card, { CardProps } from "@/components/Card";
+import { shuffleArray } from "@/utils";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // const CardPropsWithoutDirection: Omit<CardProps, "direction"> = {};
@@ -21,7 +22,11 @@ const CarList = ({ data }: { data: CardPropsWithoutDirection[] }) => {
 		>
 			{data.map((car: CardPropsWithoutDirection, index: number) => {
 				return (
-					<SwiperSlide key={index} tag="li" className="!w-max">
+					<SwiperSlide
+						key={index}
+						tag="li"
+						className="!w-max !h-auto"
+					>
 						<Card key={index} direction="column" {...car} />
 					</SwiperSlide>
 				);

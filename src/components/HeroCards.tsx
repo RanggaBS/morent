@@ -14,43 +14,49 @@ type HeroCardProps = {
 	bgPattern: "circular" | "chevron-right";
 };
 
-const HeroCarCard = ({ title, desc, colorVariant }: HeroCardProps) => {
+const HeroCard = ({ title, desc, colorVariant }: HeroCardProps) => {
 	const bg =
 		colorVariant === "information"
 			? "bg-circular-pattern bg-no-repeat bg-[length:auto_100%] bg-[top_left]"
 			: "bg-chevron-right-pattern bg-repeat";
 	return (
-		<div className={`p-4 rounded-lg ${bg} bg-${colorVariant}`}>
+		<div className={`h-full p-4 rounded-lg ${bg} !bg-${colorVariant}`}>
 			<h3 className="pb-3 font-semibold">{title}</h3>
 
 			<p className="pb-3 text-xs w-[80%]">{desc}</p>
 
 			<Button
-				intent={
+				/* intent={
 					colorVariant === "information" ? "primary" : "secondary"
-				}
+				} */
 				size="lg"
-				className="mb-6"
+				className={`mb-6 ${
+					colorVariant === "information"
+						? "!bg-primary"
+						: "!bg-information"
+				}`}
 			>
 				Rental Car
 			</Button>
 
-			<Image
-				src={
-					"/images/cars/car-hero-" +
-					(colorVariant === "information" ? "1" : "2") +
-					".png"
-				}
-				alt="A car"
-				width={218}
-				height={68}
-				className="px-5 mx-auto -mb-3"
-			/>
+			<div className="h-full">
+				<Image
+					src={
+						"/images/cars/car-hero-" +
+						(colorVariant === "information" ? "1" : "2") +
+						".png"
+					}
+					alt="A car"
+					width={999}
+					height={999}
+					className="w-auto pr-5 mx-auto -mb-3 h-14"
+				/>
+			</div>
 		</div>
 	);
 };
 
-const HeroCarCards = () => {
+const HeroCards = () => {
 	const heroCards: HeroCardProps[] = [
 		{
 			title: "The Best Platform for Car Rental",
@@ -75,12 +81,12 @@ const HeroCarCards = () => {
 			speed={1000}
 			className="font-medium text-white !mx-6 relative mb-6"
 		>
-			<div className="absolute -mx-6 bg-lime-500 h-1/2"></div>
+			{/* <div className="absolute -mx-6 bg-lime-500 h-1/2"></div> */}
 
 			{heroCards.map((card, index) => {
 				return (
-					<SwiperSlide key={index} tag="li" className="h-full">
-						<HeroCarCard
+					<SwiperSlide key={index} tag="li" className="!h-auto">
+						<HeroCard
 							/* title={card.title}
 								desc={card.desc}
 								colorVariant={card.colorVariant} */
@@ -93,4 +99,4 @@ const HeroCarCards = () => {
 	);
 };
 
-export default HeroCarCards;
+export default HeroCards;

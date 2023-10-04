@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
+/* import {
 	faMagnifyingGlass,
 	faSliders,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons"; */
+import { BsSliders } from "@react-icons/all-files/bs/BsSliders";
+// import { FaMagn } from "@react-icons/all-files/fa/FaMagn"; // No magnifying glass icon? What a stupid old library
+import {} from "@onemind-services-llc/react-icons-ng-pack/";
 import Button from "./ui/Button";
 
 const Navbar = () => {
@@ -40,10 +42,7 @@ const Navbar = () => {
 						type="submit"
 						className="h-full px-3 rounded-lg hover:bg-secondary-100"
 					>
-						<FontAwesomeIcon
-							icon={faMagnifyingGlass}
-							className="h-[1.25em]"
-						/>
+						<BsSliders />
 					</button>
 
 					<input
@@ -60,7 +59,7 @@ const Navbar = () => {
 					type="button"
 					className="px-3 py-2 rounded-lg ring-1 ring-secondary-200 ring-inset hover:bg-secondary-100"
 				>
-					<FontAwesomeIcon icon={faSliders} className="h-[1em]" />
+					<BsSliders />
 				</button>
 			</div>
 		</nav>
