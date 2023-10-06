@@ -1,5 +1,4 @@
-import { PiMagnifyingGlass } from "@onemind-services-llc/react-icons-ng-pack/pi/PiMagnifyingGlass";
-import { PiSlidersHorizontal } from "@onemind-services-llc/react-icons-ng-pack/pi/PiSlidersHorizontal";
+import { SearchNormal1, Setting4 } from "iconsax-react";
 import { useState } from "react";
 
 type SearchBarProps = {
@@ -29,7 +28,7 @@ const SearchBar = ({
 					type="submit"
 					className="h-full p-3 rounded-l-lg hover:bg-secondary-100"
 				>
-					<PiMagnifyingGlass className="w-6 h-6" />
+					<SearchNormal1 />
 				</button>
 
 				<input
@@ -46,7 +45,7 @@ const SearchBar = ({
 				type="button"
 				className="p-3 rounded-lg ring-1 ring-secondary-200 ring-inset hover:bg-secondary-100"
 			>
-				<PiSlidersHorizontal className="w-6 h-6" />
+				<Setting4 />
 			</button>
 		</div>
 	) : (
@@ -68,7 +67,7 @@ const SearchBar = ({
 					type="submit"
 					className="h-full px-5 py-[10px] rounded-l-full hover:bg-secondary-100"
 				>
-					<PiMagnifyingGlass className="w-6 h-6" />
+					<SearchNormal1 />
 				</button>
 
 				<input
@@ -85,7 +84,7 @@ const SearchBar = ({
 				type="button"
 				className="px-5 py-[10px] rounded-r-full hover:bg-secondary-100"
 			>
-				<PiSlidersHorizontal className="w-6 h-6" />
+				<Setting4 />
 			</button>
 		</div>
 	);

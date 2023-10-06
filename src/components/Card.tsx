@@ -1,43 +1,40 @@
 "use client";
 
-import { BsFillFuelPumpFill } from "@onemind-services-llc/react-icons-ng-pack/bs/BsFillFuelPumpFill";
-import { RiSteeringLine } from "@react-icons/all-files/ri/RiSteeringLine";
-import { FaUserFriends } from "@react-icons/all-files/fa/FaUserFriends";
-import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
-import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
 import Image from "next/image";
 import { useState } from "react";
 import { formatCurrency } from "@/utils";
 import Button from "./ui/Button";
+import { GasStation, Heart, Profile2User } from "iconsax-react";
+import SteeringWheel from "./ui/icons/SteeringWheel";
 
 type CarDetailsItemType = "gasoline" | "steering" | "capacity";
 
 export const CarDetailsItem = ({
-	direction,
+	// direction,
 	itemType,
 	itemValue,
 }: {
-	direction: CardProps["direction"];
+	// direction: CardProps["direction"];
 	itemType: CarDetailsItemType;
 	itemValue: number | string;
 }) => {
 	const Icon = () =>
 		itemType === "gasoline" ? (
-			<BsFillFuelPumpFill />
+			<GasStation variant="Bold" />
 		) : itemType === "steering" ? (
-			<RiSteeringLine />
+			<SteeringWheel />
 		) : (
-			<FaUserFriends />
+			<Profile2User variant="Bold" />
 		);
 
 	const postfix =
 		itemType === "gasoline" ? "L" : itemType === "capacity" ? "People" : "";
 
 	return (
-		<div className="flex items-center gap-2 w-max">
+		<div className="flex items-center w-max gap-1">
 			<Icon />
 
-			<p>
+			<p className="w-max">
 				<span>{itemValue}</span> {postfix}
 			</p>
 		</div>
@@ -78,14 +75,14 @@ const Card = ({
 	return (
 		<div
 			className={`${
-				direction === "column" ? "max-w-[240px] " : ""
+				direction === "column" ? "max-w-[240px] md:max-w-[304px] " : ""
 			} flex flex-col justify-between h-full rounded-lg bg-white p-4 shadow-sm text-xs md:text-sm`}
 		>
 			{/* Heading */}
 			<div className="flex items-start justify-between">
 				{/* Title */}
 				<div>
-					<h3 className="font-semibold text-secondary text-base md:text-xl">
+					<h3 className="text-base font-semibold text-secondary md:text-xl">
 						{name}
 					</h3>
 
@@ -98,19 +95,10 @@ const Card = ({
 					onClick={() => setLiked(prevVal => !prevVal)}
 					className="pt-1"
 				>
-					{liked ? (
-						<AiFillHeart
-							style={{
-								height: "24px",
-								width: "24px",
-								color: "#FF4423",
-							}}
-						/>
-					) : (
-						<AiOutlineHeart
-							style={{ height: "24px", width: "24px" }}
-						/>
-					)}
+					<Heart
+						variant={liked ? "Bold" : "Linear"}
+						color={liked ? "#FF4423" : "currentColor"}
+					/>
 				</button>
 			</div>
 
@@ -149,7 +137,6 @@ const Card = ({
 						return (
 							<li key={index}>
 								<CarDetailsItem
-									direction={direction}
 									itemType={carDetailsKey}
 									itemValue={details[carDetailsKey]}
 								/>
@@ -182,7 +169,7 @@ const Card = ({
 						</p>
 
 						{/* Original price */}
-						<p className=" line-through">
+						<p className="line-through ">
 							${formatCurrency(price)}
 						</p>
 					</div>

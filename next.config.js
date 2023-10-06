@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+	/* modularizeImports: {
+		"iconsax-react": {
+			transform: ""
+		}
+	} */
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

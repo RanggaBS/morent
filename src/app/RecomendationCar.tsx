@@ -22,12 +22,12 @@ const RecomendationCar = ({ data }: { data: CardPropsWithoutDirection[] }) => {
 
 	return (
 		<section>
-			<div className="mx-6">
+			<div className="mx-mobile md:mx-tablet">
 				<h2 id="recomendation" className="pb-4 text-sm font-semibold">
 					Recomendation Car
 				</h2>
 
-				<ul className="flex flex-col gap-6">
+				<ul className="flex flex-col gap-5 md:grid md:grid-cols-[repeat(auto-fill,minmax(240px,1fr))] md:gap-8">
 					{data.map((car, index) => {
 						// console.log("car = ", car);
 						return (
@@ -54,7 +54,7 @@ const RecomendationCar = ({ data }: { data: CardPropsWithoutDirection[] }) => {
 					</Button>
 
 					<p className="text-sm justify-self-end">
-						<span>120</span>Cars
+						<span>120</span> Cars
 					</p>
 				</div>
 			</div>

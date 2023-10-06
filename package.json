@@ -9,13 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@onemind-services-llc/react-icons-ng-pack": "^5.0.3",
-    "@react-icons/all-files": "^4.1.0",
     "class-variance-authority": "^0.7.0",
+    "iconsax-react": "^0.0.8",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-icons": "^4.11.0",
     "swiper": "^10.3.1"
   },
   "devDependencies": {

@@ -15,7 +15,7 @@ const config: Config = {
 			maxWidth: {
 				"app-max-content": "1312px",
 				"app-max-content-margin":
-					"1344px" /* 1312 + max margin (2rem) */,
+					"1376px" /* 1312 + (max margin (2rem) * 2) */,
 			},
 			backgroundImage: {
 				"circular-pattern":

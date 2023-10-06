@@ -1,16 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Button from "@/components/ui/Button";
 import HeroCards from "@/components/HeroCards";
-import { LuArrowUpDown } from "@onemind-services-llc/react-icons-ng-pack/lu/LuArrowUpDown";
-import { LuChevronDown } from "@onemind-services-llc/react-icons-ng-pack/lu/LuChevronDown";
 import Link from "next/link";
 import data from "@/data.json";
-import Card, { CardProps, CardPropsWithoutDirection } from "@/components/Card";
+import { CardPropsWithoutDirection } from "@/components/Card";
 import CarList from "@/components/CarList";
 import { shuffleArray } from "@/utils";
-import useDeviceType from "@/hooks/useDeviceType";
+// import useDeviceType from "@/hooks/useDeviceType";
 import RecomendationCar from "./RecomendationCar";
 import Footer from "@/components/Footer";
+import { ArrangeVertical, ArrowDown2 } from "iconsax-react";
 
 // Pick Up & Drop Off
 const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
@@ -43,7 +42,7 @@ const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 				<div className="flex items-center text-xs">
 					<p>{input.dropdownPlaceholder}</p>
 
-					<LuChevronDown className="h-full" />
+					<ArrowDown2 />
 				</div>
 			</div>
 		);
@@ -79,15 +78,15 @@ export const Hero = () => {
 			<HeroCards />
 
 			{/* Pick-Up & Drop-Off */}
-			<div className="flex flex-col pb-8 mx-6">
+			<div className="flex flex-col pb-8 mx-mobile md:mx-tablet md:flex-row md:gap-4 md:justify-between md:items-center">
 				<PickUpDropOff name="Pick - Up" />
 
 				{/* Switch button */}
 				<Button
 					intent="primary"
-					className="flex-grow-0 w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10"
+					className="shadow-2xl shadow-primary w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10 md:m-0"
 				>
-					<LuArrowUpDown className="w-6 h-6 mx-auto" />
+					<ArrangeVertical className="mx-auto" />
 				</Button>
 
 				<PickUpDropOff name="Drop - Off" />
@@ -100,11 +99,10 @@ export const PopularCar = () => {
 	const shuffledData = shuffleArray(
 		data.category.popular
 	) as CardPropsWithoutDirection[];
-	// console.log("shuffledData = ", shuffledData);
 
 	return (
 		<section>
-			<div className="pb-8 ml-6">
+			<div className="pb-8 ml-mobile md:mx-tablet">
 				<div className="flex items-center justify-between pb-4 mr-6 text-sm">
 					<h2 className="text-sm font-semibold">Popular Car</h2>
 
