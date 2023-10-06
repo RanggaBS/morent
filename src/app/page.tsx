@@ -1,12 +1,16 @@
 import Navbar from "@/components/Navbar";
 import Button from "@/components/ui/Button";
 import HeroCards from "@/components/HeroCards";
-import { LuArrowUpDown, LuChevronDown } from "react-icons/lu";
+import { LuArrowUpDown } from "@onemind-services-llc/react-icons-ng-pack/lu/LuArrowUpDown";
+import { LuChevronDown } from "@onemind-services-llc/react-icons-ng-pack/lu/LuChevronDown";
 import Link from "next/link";
 import data from "@/data.json";
-import Card, { CardProps } from "@/components/Card";
+import Card, { CardProps, CardPropsWithoutDirection } from "@/components/Card";
 import CarList from "@/components/CarList";
 import { shuffleArray } from "@/utils";
+import useDeviceType from "@/hooks/useDeviceType";
+import RecomendationCar from "./RecomendationCar";
+import Footer from "@/components/Footer";
 
 // Pick Up & Drop Off
 const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
@@ -78,6 +82,7 @@ export const Hero = () => {
 			<div className="flex flex-col pb-8 mx-6">
 				<PickUpDropOff name="Pick - Up" />
 
+				{/* Switch button */}
 				<Button
 					intent="primary"
 					className="flex-grow-0 w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10"
@@ -92,33 +97,28 @@ export const Hero = () => {
 };
 
 export const PopularCar = () => {
-	return (
-		<div className="pb-8 ml-6">
-			<div className="flex items-center justify-between pb-4 mr-6 text-sm">
-				<h2 className="text-sm font-semibold">Popular Car</h2>
+	const shuffledData = shuffleArray(
+		data.category.popular
+	) as CardPropsWithoutDirection[];
+	// console.log("shuffledData = ", shuffledData);
 
-				<Link
-					href="/cars"
-					className="text-xs font-semibold text-primary"
-				>
-					View All
-				</Link>
+	return (
+		<section>
+			<div className="pb-8 ml-6">
+				<div className="flex items-center justify-between pb-4 mr-6 text-sm">
+					<h2 className="text-sm font-semibold">Popular Car</h2>
+
+					<Link
+						href="/cars"
+						className="text-xs font-semibold text-primary"
+					>
+						View All
+					</Link>
+				</div>
+
+				<CarList data={shuffledData} />
 			</div>
-
-			<CarList data={shuffleArray(data.category.popular)} />
-		</div>
-	);
-};
-
-export const RecomendationCar = () => {
-	return (
-		<div className="mx-6">
-			<h2 id="recomendation" className="pb-4 text-sm font-semibold">
-				Recomendation Car
-			</h2>
-
-			<CarList data={shuffleArray(data.category.recomendation)} />
-		</div>
+		</section>
 	);
 };
 
@@ -128,12 +128,22 @@ export default function Home() {
 		<div className="overflow-x-hidden font-medium bg-app-bg text-secondary-300">
 			<Navbar />
 			<main>
-				<Hero />
+				<div className="mx-auto max-w-app-max-content-margin">
+					<Hero />
 
-				<PopularCar />
+					<PopularCar />
 
-				<RecomendationCar />
+					<RecomendationCar
+						data={
+							shuffleArray(
+								data.category.recomendation
+							) as CardPropsWithoutDirection[]
+						}
+					/>
+				</div>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }

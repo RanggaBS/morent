@@ -8,6 +8,15 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			margin: {
+				mobile: "1.5rem",
+				tablet: "2rem",
+			},
+			maxWidth: {
+				"app-max-content": "1312px",
+				"app-max-content-margin":
+					"1344px" /* 1312 + max margin (2rem) */,
+			},
 			backgroundImage: {
 				"circular-pattern":
 					"url('../../src/assets/images/pattern-circular-md.png')",

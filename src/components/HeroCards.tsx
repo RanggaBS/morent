@@ -79,7 +79,13 @@ const HeroCards = () => {
 			// autoplay={{ delay: 3000, disableOnInteraction: false }}
 			spaceBetween={24}
 			speed={1000}
-			className="font-medium text-white !mx-6 relative mb-6"
+			className="font-medium text-white !mx-mobile relative !pb-6 md:!mx-tablet md:!py-8"
+			breakpoints={{
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 32,
+				},
+			}}
 		>
 			{/* <div className="absolute -mx-6 bg-lime-500 h-1/2"></div> */}
 

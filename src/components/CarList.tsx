@@ -1,14 +1,8 @@
 "use client";
 
-import Card, { CardProps } from "@/components/Card";
+import Card, { CardProps, CardPropsWithoutDirection } from "@/components/Card";
 import { shuffleArray } from "@/utils";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// const CardPropsWithoutDirection: Omit<CardProps, "direction"> = {};
-
-type CardPropsWithoutDirection = {
-	[K in keyof CardProps as Exclude<K, "direction">]: CardProps[K];
-};
 
 // type TCarDetails = CardProps["details"];
 

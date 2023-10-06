@@ -1,12 +1,10 @@
 "use client";
 
-import { BsFillFuelPumpFill } from "react-icons/bs"; // works
-// import { BsFillFuelPumpFill } from "@react-icons/all-files/bs/BsFillFuelPump_not_found"; // stupid library, the icon not exist
+import { BsFillFuelPumpFill } from "@onemind-services-llc/react-icons-ng-pack/bs/BsFillFuelPumpFill";
 import { RiSteeringLine } from "@react-icons/all-files/ri/RiSteeringLine";
 import { FaUserFriends } from "@react-icons/all-files/fa/FaUserFriends";
 import { AiFillHeart } from "@react-icons/all-files/ai/AiFillHeart";
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart";
-import { AiTwotoneHeart } from "@react-icons/all-files/ai/AiTwotoneHeart";
 import Image from "next/image";
 import { useState } from "react";
 import { formatCurrency } from "@/utils";
@@ -15,9 +13,11 @@ import Button from "./ui/Button";
 type CarDetailsItemType = "gasoline" | "steering" | "capacity";
 
 export const CarDetailsItem = ({
+	direction,
 	itemType,
 	itemValue,
 }: {
+	direction: CardProps["direction"];
 	itemType: CarDetailsItemType;
 	itemValue: number | string;
 }) => {
@@ -34,7 +34,7 @@ export const CarDetailsItem = ({
 		itemType === "gasoline" ? "L" : itemType === "capacity" ? "People" : "";
 
 	return (
-		<div className="flex items-center gap-2">
+		<div className="flex items-center gap-2 w-max">
 			<Icon />
 
 			<p>
@@ -55,7 +55,13 @@ export type CardProps = {
 		capacity: number;
 	};
 	price: number;
-	discountPrice: number;
+	discountPrice: number | null | undefined;
+};
+
+// const CardPropsWithoutDirection: Omit<CardProps, "direction"> = {};
+
+export type CardPropsWithoutDirection = {
+	[K in keyof CardProps as Exclude<K, "direction">]: CardProps[K];
 };
 
 const Card = ({
@@ -70,14 +76,20 @@ const Card = ({
 	const [liked, setLiked] = useState(false);
 
 	return (
-		<div className="max-w-[240px] max-h-[286px] flex flex-col justify-between h-full rounded-lg bg-white p-4">
+		<div
+			className={`${
+				direction === "column" ? "max-w-[240px] " : ""
+			} flex flex-col justify-between h-full rounded-lg bg-white p-4 shadow-sm text-xs md:text-sm`}
+		>
 			{/* Heading */}
 			<div className="flex items-start justify-between">
 				{/* Title */}
 				<div>
-					<h3 className="font-semibold text-secondary">{name}</h3>
+					<h3 className="font-semibold text-secondary text-base md:text-xl">
+						{name}
+					</h3>
 
-					<p className="text-xs">{type}</p>
+					<p>{type}</p>
 				</div>
 
 				{/* Like button */}
@@ -102,28 +114,44 @@ const Card = ({
 				</button>
 			</div>
 
-			{/* Car Image */}
+			{/* Middle (car image & details) */}
 			<div
 				className={
-					"flex " + (direction === "row" ? "flex-row" : "flex-col")
+					"flex " +
+					(direction === "row" ? "flex-row pb-5" : "flex-col pb-7")
 				}
 			>
-				<Image
-					src={img}
-					alt={name + " car"}
-					width={999}
-					height={999}
-					className="px-2 py-8 mx-auto"
-				/>
+				{/* Car Image (must wrap with div, otherwise it'll overflow) */}
+				<div className="w-full">
+					<Image
+						src={img}
+						alt={name + " car"}
+						width={999}
+						height={999}
+						className={
+							direction === "column"
+								? "px-[14px] pt-8 pb-11 mx-auto"
+								: "w-4/5 py-6"
+						}
+					/>
+				</div>
 
 				{/* Car Details */}
-				<ul className="flex items-center justify-between pb-6 text-xs">
-					{Object.keys(details)?.map((key, index) => {
+				<ul
+					className={`flex ${
+						direction === "column"
+							? "flex-row items-center justify-between"
+							: "flex-col justify-evenly items-start"
+					} `}
+				>
+					{Object.keys(details).map((key, index) => {
+						const carDetailsKey = key as CarDetailsItemType;
 						return (
 							<li key={index}>
 								<CarDetailsItem
-									itemType={key}
-									itemValue={details[key]}
+									direction={direction}
+									itemType={carDetailsKey}
+									itemValue={details[carDetailsKey]}
 								/>
 							</li>
 						);
@@ -132,10 +160,11 @@ const Card = ({
 			</div>
 
 			{/* Price & Button */}
-			<div className="flex gap-4 font-bold">
-				{discountPrice === null ? (
+			<div className="flex items-center justify-between gap-4 font-bold">
+				{discountPrice === null ||
+				typeof discountPrice === "undefined" ? (
 					// No discount
-					<p className="text-xs">
+					<p>
 						<span className="text-base text-secondary">
 							${formatCurrency(price)}/
 						</span>
@@ -145,7 +174,7 @@ const Card = ({
 					// Discount
 					<div>
 						{/* Discount price */}
-						<p className="text-xs">
+						<p>
 							<span className="text-base text-secondary">
 								${formatCurrency(discountPrice)}/
 							</span>
@@ -153,7 +182,7 @@ const Card = ({
 						</p>
 
 						{/* Original price */}
-						<p className="text-xs line-through">
+						<p className=" line-through">
 							${formatCurrency(price)}
 						</p>
 					</div>

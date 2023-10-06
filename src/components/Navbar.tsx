@@ -1,66 +1,43 @@
 import Image from "next/image";
-import Link from "next/link";
-import styles from "./Navbar.module.css";
-/* import {
-	faMagnifyingGlass,
-	faSliders,
-} from "@fortawesome/free-solid-svg-icons"; */
-import { BsSliders } from "@react-icons/all-files/bs/BsSliders";
-// import { FaMagn } from "@react-icons/all-files/fa/FaMagn"; // No magnifying glass icon? What a stupid old library
-import {} from "@onemind-services-llc/react-icons-ng-pack/";
-import Button from "./ui/Button";
+import Logo from "./ui/Logo";
+import SearchBar from "./ui/SearchBar";
 
 const Navbar = () => {
 	return (
-		<nav className={styles.navbar}>
-			{/* First */}
-			<div className={styles.navbar__first}>
-				{/* Logo */}
-				<Link href="/" className={styles.navbar__logo}>
-					MORENT
-				</Link>
+		<nav className="bg-white text-secondary-400 md:ring-1 md:ring-secondary-200 md:ring-inset md:ring-opacity-40">
+			<div className="relative flex flex-col gap-8 py-8 mx-auto md:static max-w-app-max-content-margin md:block md:py-10">
+				{/* Background */}
+				<div className="bg-white h-[116px] w-full md:hidden absolute bottom-0 translate-y-full"></div>
 
-				{/* Profile Picture */}
-				<Image
-					src="/images/RBS.jpg"
-					alt="Profile picture"
-					width="32"
-					height="32"
-					className={styles.navbar__profilePicture}
-				/>
-			</div>
+				{/* Top */}
+				<div className="flex items-center justify-between mx-mobile md:mx-tablet md:gap-8">
+					<div className="md:flex md:items-center md:gap-8 md:flex-grow">
+						<Logo />
 
-			{/* Second */}
-			<div className={styles.navbar__second}>
-				{/* Search */}
-				<form
-					action=""
-					method="get"
-					className="flex items-center flex-1 rounded-lg ring-1 ring-secondary-200 ring-inset"
-				>
-					<button
-						type="submit"
-						className="h-full px-3 rounded-lg hover:bg-secondary-100"
-					>
-						<BsSliders />
+						{/* Hidden on mobile */}
+						<SearchBar
+							variant="group"
+							className="hidden md:flex md:flex-grow"
+						/>
+					</div>
+
+					{/* Profile Picture */}
+					<button type="button">
+						<Image
+							src="/images/RBS.jpg"
+							alt="Profile picture"
+							width={999}
+							height={999}
+							className="rounded-full h-7 w-7 md:h-11 md:w-11"
+						/>
 					</button>
+				</div>
 
-					<input
-						type="text"
-						name="search"
-						id="search"
-						placeholder="Search something here"
-						className="w-full px-4 py-2 text-sm bg-transparent"
-					/>
-				</form>
-
-				{/* Setting button */}
-				<button
-					type="button"
-					className="px-3 py-2 rounded-lg ring-1 ring-secondary-200 ring-inset hover:bg-secondary-100"
-				>
-					<BsSliders />
-				</button>
+				{/* Hidden starts on Tablet (min-width: 768px) */}
+				<SearchBar
+					variant="split"
+					className="md:hidden mx-mobile md:mx-tablet"
+				/>
 			</div>
 		</nav>
 	);
