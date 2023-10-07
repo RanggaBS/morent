@@ -71,7 +71,7 @@ const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 };
 
 // Hero section
-export const Hero = () => {
+const Hero = () => {
 	return (
 		<section id="hero">
 			{/* Cards */}
@@ -95,7 +95,7 @@ export const Hero = () => {
 	);
 };
 
-export const PopularCar = () => {
+const PopularCar = () => {
 	const shuffledData = shuffleArray(
 		data.category.popular
 	) as CardPropsWithoutDirection[];
