@@ -123,7 +123,7 @@ const PopularCar = () => {
 // Homepage
 export default function Home() {
 	return (
-		<div className="overflow-x-hidden font-medium bg-app-bg text-secondary-300">
+		<div className="overflow-x-hidden font-medium bg-app-bg text-secondary-300 min-h-screen">
 			<Navbar />
 			<main>
 				<div className="mx-auto max-w-app-max-content-margin">
