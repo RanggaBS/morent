@@ -5,3 +5,7 @@
 .rounded-bordered {
 	@apply rounded-lg border;
 }
+
+a:not(.logo):hover {
+	text-decoration: underline;
+}

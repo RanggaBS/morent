@@ -5,7 +5,7 @@ const Logo = ({ className }: { className?: string | undefined }) => {
 		<Link
 			href="/"
 			className={
-				"text-2xl md:text-[2rem] font-bold text-primary" +
+				"logo text-2xl md:text-[2rem] font-bold text-primary" +
 				(className ? " " + className : "")
 			}
 		>

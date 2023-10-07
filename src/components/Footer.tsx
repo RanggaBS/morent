@@ -99,7 +99,7 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className="bg-white">
+		<footer className="min-h-[inherit] md:bg-white">
 			<div className="mx-auto max-w-app-max-content-margin">
 				<div className="mx-mobile md:mx-tablet flex flex-col justify-between gap-10 pb-10 md:flex-row md:pt-[4.5rem]">
 					{/* Heading */}
@@ -130,7 +130,7 @@ const Footer = () => {
 				<hr className="hidden md:block mx-mobile md:mx-tablet" />
 
 				{/* Privacy policy */}
-				<div className="mx-mobile md:mx-tablet flex flex-col justify-between gap-6 pt-0 pb-6 text-xs font-semibold text-secondary md:flex-row-reverse md:pt-6 md:pb-8">
+				<div className="flex flex-col justify-between gap-6 pt-0 pb-6 text-xs font-semibold mx-mobile md:mx-tablet text-secondary md:flex-row-reverse md:pt-6 md:pb-8">
 					<div className="flex justify-between gap-12">
 						<Link href="/privacy">Privacy & Policy</Link>
 

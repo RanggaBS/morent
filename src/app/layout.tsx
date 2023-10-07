@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -16,7 +18,16 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={plusJakartaSans.className}>{children}</body>
+			<body className={plusJakartaSans.className}>
+				<div
+					id="App"
+					className="overflow-x-hidden font-medium bg-app-bg text-secondary-300 min-h-screen"
+				>
+					<Navbar />
+					{children}
+					<Footer />
+				</div>
+			</body>
 		</html>
 	);
 }
