@@ -65,7 +65,7 @@ const HomePage = () => {
 					<CardList
 						data={
 							shuffleArray(
-								data.category.recomendation
+								data.category.recommendation
 							) as CardPropsWithoutDirection[]
 						}
 						showMore={true}
