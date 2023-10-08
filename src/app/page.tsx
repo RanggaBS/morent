@@ -1,16 +1,11 @@
-import Navbar from "@/components/Navbar";
-import Button from "@/components/ui/Button";
-import HeroCards from "@/components/HeroCards";
+import HeroCards from "@/app/HeroCards";
 import Link from "next/link";
 import data from "@/data.json";
 import { CardPropsWithoutDirection } from "@/components/Card";
-import CarList from "@/components/CarList";
+import SwiperCardList from "@/components/client/SwiperCardList";
 import { shuffleArray } from "@/utils";
-// import useDeviceType from "@/hooks/useDeviceType";
-import RecomendationCar from "./RecomendationCar";
-import Footer from "@/components/Footer";
-import { ArrangeVertical, ArrowDown2 } from "iconsax-react";
-import PickUpDropOff from "@/components/PickUpDropOff";
+import { PickUpDropOffGroup } from "@/components/PickUpDropOff";
+import CardList from "../components/client/CardList";
 
 // Hero section
 const Hero = () => {
@@ -20,19 +15,7 @@ const Hero = () => {
 			<HeroCards />
 
 			{/* Pick-Up & Drop-Off */}
-			<div className="flex flex-col pb-8 mx-mobile md:mx-tablet md:flex-row md:gap-4 md:justify-between md:items-center">
-				<PickUpDropOff name="Pick - Up" />
-
-				{/* Switch button */}
-				<Button
-					intent="primary"
-					className="shadow-2xl shadow-primary w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10 md:m-0"
-				>
-					<ArrangeVertical className="mx-auto" />
-				</Button>
-
-				<PickUpDropOff name="Drop - Off" />
-			</div>
+			<PickUpDropOffGroup />
 		</section>
 	);
 };
@@ -56,14 +39,14 @@ const PopularCar = () => {
 					</Link>
 				</div>
 
-				<CarList data={shuffledData} />
+				<SwiperCardList data={shuffledData} />
 			</div>
 		</section>
 	);
 };
 
 // Homepage
-export const HomePage = () => {
+const HomePage = () => {
 	return (
 		<main>
 			<div className="mx-auto max-w-app-max-content-margin">
@@ -71,13 +54,23 @@ export const HomePage = () => {
 
 				<PopularCar />
 
-				<RecomendationCar
-					data={
-						shuffleArray(
-							data.category.recomendation
-						) as CardPropsWithoutDirection[]
-					}
-				/>
+				<div>
+					<h2
+						id="recomendation"
+						className="pb-4 text-sm font-semibold"
+					>
+						Recomendation Car
+					</h2>
+
+					<CardList
+						data={
+							shuffleArray(
+								data.category.recomendation
+							) as CardPropsWithoutDirection[]
+						}
+						showMore={true}
+					/>
+				</div>
 			</div>
 		</main>
 	);

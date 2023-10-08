@@ -1,4 +1,5 @@
-import { ArrowDown2 } from "iconsax-react";
+import { ArrangeVertical, ArrowDown2 } from "iconsax-react";
+import Button from "./ui/Button";
 
 const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 	let inputs = [
@@ -40,13 +41,19 @@ const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 		}
 	});
 
+	const circleBg = name === "Pick - Up" ? "bg-primary" : "bg-information";
+
 	return (
 		<div className="flex-grow p-4 bg-white rounded-lg">
 			<div className="flex items-center pb-4">
 				{/* Circle Icon Pulse */}
 				<span className="relative flex w-2 h-2 mx-2">
-					<span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-primary"></span>
-					<span className="relative inline-flex w-2 h-2 rounded-full bg-primary"></span>
+					<span
+						className={`absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping ${circleBg}`}
+					></span>
+					<span
+						className={`relative inline-flex w-2 h-2 rounded-full ${circleBg}`}
+					></span>
 				</span>
 
 				{/* Title */}
@@ -54,6 +61,24 @@ const PickUpDropOff = ({ name }: { name: "Pick - Up" | "Drop - Off" }) => {
 			</div>
 
 			<div className="flex justify-between">{elementsWithDividers}</div>
+		</div>
+	);
+};
+
+export const PickUpDropOffGroup = () => {
+	return (
+		<div className="flex flex-col pb-8 mx-mobile md:mx-tablet md:flex-row md:gap-4 md:justify-between md:items-center">
+			<PickUpDropOff name="Pick - Up" />
+
+			{/* Switch button */}
+			<Button
+				intent="primary"
+				className="shadow-2xl shadow-primary w-[60px] h-[60px] !rounded-[10px] mx-auto -my-4 z-10 md:m-0"
+			>
+				<ArrangeVertical className="mx-auto" />
+			</Button>
+
+			<PickUpDropOff name="Drop - Off" />
 		</div>
 	);
 };

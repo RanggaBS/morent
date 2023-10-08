@@ -99,7 +99,7 @@ const Footer = () => {
 	];
 
 	return (
-		<footer className="min-h-[inherit] md:bg-white">
+		<footer className="md:bg-white">
 			<div className="mx-auto max-w-app-max-content-margin">
 				<div className="mx-mobile md:mx-tablet flex flex-col justify-between gap-10 pb-10 md:flex-row md:pt-[4.5rem]">
 					{/* Heading */}

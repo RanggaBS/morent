@@ -1,12 +1,11 @@
 "use client";
 
-import Card, { CardProps, CardPropsWithoutDirection } from "@/components/Card";
-import { shuffleArray } from "@/utils";
+import Card, { CardPropsWithoutDirection } from "@/components/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // type TCarDetails = CardProps["details"];
 
-const CarList = ({ data }: { data: CardPropsWithoutDirection[] }) => {
+const SwiperCarList = ({ data }: { data: CardPropsWithoutDirection[] }) => {
 	return (
 		<Swiper
 			wrapperTag="ul"
@@ -29,4 +28,4 @@ const CarList = ({ data }: { data: CardPropsWithoutDirection[] }) => {
 	);
 };
 
-export default CarList;
+export default SwiperCarList;

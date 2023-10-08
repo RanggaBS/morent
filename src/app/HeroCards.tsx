@@ -21,7 +21,7 @@ const HeroCard = ({ title, desc, colorVariant }: HeroCardProps) => {
 			: "bg-chevron-right-pattern bg-repeat";
 	return (
 		<div className={`h-full p-4 rounded-lg ${bg} !bg-${colorVariant}`}>
-			<h3 className="pb-3 font-semibold">{title}</h3>
+			<h2 className="pb-3 font-semibold">{title}</h2>
 
 			<p className="pb-3 text-xs w-[80%]">{desc}</p>
 
@@ -73,35 +73,38 @@ const HeroCards = () => {
 	];
 
 	return (
-		<Swiper
-			wrapperTag="ul"
-			modules={[Autoplay]}
-			// autoplay={{ delay: 3000, disableOnInteraction: false }}
-			spaceBetween={24}
-			speed={1000}
-			className="font-medium text-white !mx-mobile relative !pb-6 md:!mx-tablet md:!py-8"
-			breakpoints={{
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 32,
-				},
-			}}
-		>
-			{/* <div className="absolute -mx-6 bg-lime-500 h-1/2"></div> */}
+		<div className="relative">
+			{/* Background */}
+			<div className="bg-white h-1/2 w-full md:hidden absolute top-0"></div>
 
-			{heroCards.map((card, index) => {
-				return (
-					<SwiperSlide key={index} tag="li" className="!h-auto">
-						<HeroCard
-							/* title={card.title}
+			<Swiper
+				wrapperTag="ul"
+				modules={[Autoplay]}
+				// autoplay={{ delay: 3000, disableOnInteraction: false }}
+				spaceBetween={24}
+				speed={1000}
+				className="font-medium text-white !mx-mobile relative !pb-6 md:!mx-tablet md:!py-8"
+				breakpoints={{
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 32,
+					},
+				}}
+			>
+				{heroCards.map((card, index) => {
+					return (
+						<SwiperSlide key={index} tag="li" className="!h-auto">
+							<HeroCard
+								/* title={card.title}
 								desc={card.desc}
 								colorVariant={card.colorVariant} */
-							{...card}
-						/>
-					</SwiperSlide>
-				);
-			})}
-		</Swiper>
+								{...card}
+							/>
+						</SwiperSlide>
+					);
+				})}
+			</Swiper>
+		</div>
 	);
 };
 
