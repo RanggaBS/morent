@@ -25,7 +25,7 @@ export async function GET(request: Request) {
 		param 2 adalah options
 	*/
 
-	const { searchParams }: CarSearchParams = new URL(request.url);
+	const { searchParams } = new URL(request.url);
 
 	return new Response(/* JSON.stringify(data) */ "Ngapain ke sini?", {
 		status: 200,
