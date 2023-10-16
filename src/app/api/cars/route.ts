@@ -42,15 +42,15 @@ export const GET = async (request: Request) => {
 		data = getCarsByName(name);
 	}
 
-	/* return new Response(JSON.stringify(data), {
+	return new Response(JSON.stringify(data), {
 		status: 200,
 		headers: {
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 			"Access-Control-Allow-Headers": "Content-Type, Authorization",
 		},
-	}); */
-	return Response.json(data);
+	});
+	// return Response.json(data);
 
 	/*
 		# Catatan
