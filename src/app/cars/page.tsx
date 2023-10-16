@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 
 const fetchCars = async (encodedQueryParam: string) => {
 	const apiEndpoint = getURL(`/api/cars?${encodedQueryParam}`);
+	console.log(apiEndpoint);
 	let responseObj: { ok: boolean; data: any } = { ok: false, data: null };
 	try {
 		const response = await fetch(apiEndpoint);
