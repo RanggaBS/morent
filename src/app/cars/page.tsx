@@ -95,6 +95,7 @@ const Page = () => {
 	];
 
 	const searchedCar = params?.get("search");
+	console.log("searchedCar = ", searchedCar);
 	const isFromSearch = searchedCar ? true : false;
 
 	useEffect(() => {
@@ -102,7 +103,7 @@ const Page = () => {
 			const response = await fetchCars(
 				isFromSearch
 					? objToQueryParam({
-							name: searchedCar,
+							name: searchedCar!,
 					  })
 					: objToQueryParam({
 							category: "all",
