@@ -15,17 +15,17 @@ const nextConfig = {
 			},
 		];
 	}, */
-	images: {
-		domains: ["morent-vert.vercell.app"],
-	},
-	headers: async () => {
+	/* images: {
+		domains: ["morent-vert.vercel.app"],
+	}, */
+	/* headers: async () => {
 		return [
 			{
 				source: "/api/(.*)",
 				headers: [
 					{
 						key: "Access-Control-Allow-Origin",
-						value: "*",
+						value: "https://morent-vert.vercel.app",
 					},
 					{
 						key: "Access-Control-Allow-Methods",
@@ -38,7 +38,7 @@ const nextConfig = {
 				],
 			},
 		];
-	},
+	}, */
 };
 
 module.exports = nextConfig;
