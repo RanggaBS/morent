@@ -1,288 +1,187 @@
 {
+	"cars": [
+		{
+			"id": "koenigsegg",
+			"name": "Koenigsegg",
+			"type": "Sport",
+			"img": "/images/cars/car-koenigsegg.png",
+			"details": {
+				"gasoline": 90,
+				"steering": "Manual",
+				"capacity": 2
+			},
+			"price": 99,
+			"discountPrice": null,
+			"description": "Koenigsegg is a symbol of speed and luxury. It was created by a Swedish super car manufacturer known for its advanced technology. Built with great precision, Koenigsegg offers a unique combination of futuristic design and outstanding performance. With powerful engines, Koenigsegg is the perfect choice for super car enthusiasts looking for an unparalleled driving sensation."
+		},
+		{
+			"id": "nissan-gtr",
+			"name": "Nissan GT-R",
+			"type": "Sport",
+			"img": "/images/cars/car-nissan-gt-r.png",
+			"details": {
+				"gasoline": 80,
+				"steering": "Manual",
+				"capacity": 2
+			},
+			"price": 100,
+			"discountPrice": 80,
+			"description": "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the \"race track\"."
+		},
+		{
+			"id": "rolls-royce",
+			"name": "Rolls - Royce",
+			"type": "Sedan",
+			"img": "/images/cars/car-rolls-royce.png",
+			"details": {
+				"gasoline": 70,
+				"steering": "Manual",
+				"capacity": 4
+			},
+			"price": 96,
+			"discountPrice": null,
+			"description": "Rolls-Royce is an icon of luxury and perfection in the automotive world. It originated in the UK and has a long history of providing luxury vehicles to the world's elite. Known for its classically elegant design, luxurious interiors, and quiet, comfortable driveability, Rolls-Royce is the ultimate choice for those who desire mobility in exceptional style."
+		},
+		{
+			"id": "all-new-rush",
+			"name": "All New Rush",
+			"type": "SUV",
+			"img": "/images/cars/car-all-new-rush.png",
+			"details": {
+				"gasoline": 70,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 80,
+			"discountPrice": 72,
+			"description": "The All New Rush is a rugged and versatile SUV manufactured by Toyota. It is designed to tackle a variety of terrains, making it perfect for family adventures. With a modern design, spacious interior space, and the latest safety features, the All New Rush is the ideal vehicle for long trips and outdoor adventures."
+		},
+		{
+			"id": "cr-v-1",
+			"name": "CR - V",
+			"type": "SUV",
+			"img": "/images/cars/car-cr-v-brown.png",
+			"details": {
+				"gasoline": 80,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 80,
+			"discountPrice": null,
+			"description": "The Honda CR-V is a popular SUV that offers comfort, performance, and fuel efficiency. With its elegant design, advanced technology, and spacious interior, the CR-V is a great option for those looking for an everyday car that can well accommodate the needs of a family."
+		},
+		{
+			"id": "all-new-terios",
+			"name": "All New Terios",
+			"type": "SUV",
+			"img": "/images/cars/car-all-new-terios.png",
+			"details": {
+				"gasoline": 90,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 74,
+			"discountPrice": null,
+			"description": "The All New Terios is a compact SUV produced by Daihatsu. It offers bold style and agility in various road conditions. With its compact yet comfortable size, the All New Terios is a popular choice for those seeking efficient city mobility."
+		},
+		{
+			"id": "cr-v-2",
+			"name": "CR - V",
+			"type": "SUV",
+			"img": "/images/cars/car-cr-v-black.png",
+			"details": {
+				"gasoline": 80,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 80,
+			"discountPrice": null,
+			"description": "The Honda CR-V is a popular SUV that offers comfort, performance, and fuel efficiency. With its elegant design, advanced technology, and spacious interior, the CR-V is a great option for those looking for an everyday car that can well accommodate the needs of a family."
+		},
+		{
+			"id": "mg-zx-exclusive",
+			"name": "MG ZX Exclusive",
+			"type": "Hatchback",
+			"img": "/images/cars/car-mg-zx-exclusive.png",
+			"details": {
+				"gasoline": 70,
+				"steering": "Manual",
+				"capacity": 4
+			},
+			"price": 80,
+			"discountPrice": 76,
+			"description": "The MG ZX Exclusive is a hatchback car that offers modern styling and advanced features. Produced by British manufacturer MG, it has a charming design and satisfying performance. With the latest technology and strong visual appeal, the MG ZX Exclusive is a suitable vehicle for those looking for an elegant compact car."
+		},
+		{
+			"id": "new-mg-zs-1",
+			"name": "New MG ZS",
+			"type": "SUV",
+			"img": "/images/cars/car-new-mg-zs-white.png",
+			"details": {
+				"gasoline": 80,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 80,
+			"discountPrice": null,
+			"description": "The New MG ZS is a compact SUV that offers a combination of contemporary design and high functionality. It comes with a wide array of safety and entertainment features, and offers impressive fuel efficiency. The New MG ZS is a smart choice for those who want a well-performing and comfortable SUV."
+		},
+		{
+			"id": "new-mg-zx-excite",
+			"name": "New MG ZX Excite",
+			"type": "Hatchback",
+			"img": "/images/cars/car-mg-zx-excite.png",
+			"details": {
+				"gasoline": 90,
+				"steering": "Manual",
+				"capacity": 4
+			},
+			"price": 74,
+			"discountPrice": null,
+			"description": "The New MG ZX Excite is a hatchback car that stands out with its attractive design and advanced technology. It offers exciting performance and good fuel efficiency. With its seductive styling and advanced features, the New MG ZX Excite is an attractive choice for drivers looking for a combination of style and performance."
+		},
+		{
+			"id": "new-mg-zs-2",
+			"name": "New MG ZS",
+			"type": "SUV",
+			"img": "/images/cars/car-new-mg-zs-silver.png",
+			"details": {
+				"gasoline": 80,
+				"steering": "Manual",
+				"capacity": 6
+			},
+			"price": 80,
+			"discountPrice": null,
+			"description": "The New MG ZS is a compact SUV that offers a combination of contemporary design and high functionality. It comes with a wide array of safety and entertainment features, and offers impressive fuel efficiency. The New MG ZS is a smart choice for those who want a well-performing and comfortable SUV."
+		}
+	],
+
 	"category": {
 		"all": [
-			{
-				"name": "Koenigsegg",
-				"type": "Sport",
-				"img": "/images/cars/car-koenigsegg.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 2
-				},
-				"price": 99.0,
-				"discountPrice": null
-			},
-			{
-				"name": "Nissan GT-R",
-				"type": "Sport",
-				"img": "/images/cars/car-nissan-gt-r.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 2
-				},
-				"price": 100.0,
-				"discountPrice": 80.0
-			},
-			{
-				"name": "Rolls - Royce",
-				"type": "Sedan",
-				"img": "/images/cars/car-rolls-royce.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 96.0,
-				"discountPrice": null
-			},
-			{
-				"name": "All New Rush",
-				"type": "SUV",
-				"img": "/images/cars/car-all-new-rush.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": 72.0
-			},
-			{
-				"name": "CR - V",
-				"type": "SUV",
-				"img": "/images/cars/car-cr-v-brown.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "All New Terios",
-				"type": "SUV",
-				"img": "/images/cars/car-all-new-terios.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 74.0,
-				"discountPrice": null
-			},
-			{
-				"name": "CR - V",
-				"type": "SUV",
-				"img": "/images/cars/car-cr-v-black.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "MG ZX Exclusive",
-				"type": "Hatchback",
-				"img": "/images/cars/car-mg-zx-exclusive.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 80.0,
-				"discountPrice": 76.0
-			},
-			{
-				"name": "New MG ZS",
-				"type": "SUV",
-				"img": "/images/cars/car-new-mg-zs-white.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "New MG ZX Excite",
-				"type": "Hatchback",
-				"img": "/images/cars/car-mg-zx-excite.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 74.0,
-				"discountPrice": null
-			},
-			{
-				"name": "New MG ZS",
-				"type": "SUV",
-				"img": "/images/cars/car-new-mg-zs-silver.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			}
+			"koenigsegg",
+			"nissan-gtr",
+			"rolls-royce",
+			"all-new-rush",
+			"cr-v-1",
+			"all-new-terios",
+			"cr-v-2",
+			"mg-zx-exclusive",
+			"new-mg-zs-1",
+			"new-mg-zx-excite",
+			"new-mg-zs-2"
 		],
 
-		"popular": [
-			{
-				"name": "Koenigsegg",
-				"type": "Sport",
-				"img": "/images/cars/car-koenigsegg.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 2
-				},
-				"price": 99.0,
-				"discountPrice": null
-			},
-			{
-				"name": "Nissan GT-R",
-				"type": "Sport",
-				"img": "/images/cars/car-nissan-gt-r.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 2
-				},
-				"price": 100.0,
-				"discountPrice": 80.0
-			},
-			{
-				"name": "Rolls - Royce",
-				"type": "Sedan",
-				"img": "/images/cars/car-rolls-royce.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 96.0,
-				"discountPrice": null
-			},
-			{
-				"name": "Nissan GT-R",
-				"type": "Sport",
-				"img": "/images/cars/car-nissan-gt-r.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 2
-				},
-				"price": 100.0,
-				"discountPrice": 80.0
-			}
-		],
+		"popular": ["koenigsegg", "nissan-gtr", "rolls-royce", "nissan-gtr"],
 
 		"recommendation": [
-			{
-				"name": "All New Rush",
-				"type": "SUV",
-				"img": "/images/cars/car-all-new-rush.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": 72.0
-			},
-			{
-				"name": "CR - V",
-				"type": "SUV",
-				"img": "/images/cars/car-cr-v-brown.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "All New Terios",
-				"type": "SUV",
-				"img": "/images/cars/car-all-new-terios.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 74.0,
-				"discountPrice": null
-			},
-			{
-				"name": "CR - V",
-				"type": "SUV",
-				"img": "/images/cars/car-cr-v-black.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "MG ZX Exclusive",
-				"type": "Hatchback",
-				"img": "/images/cars/car-mg-zx-exclusive.png",
-				"details": {
-					"gasoline": 70,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 80.0,
-				"discountPrice": 76.0
-			},
-			{
-				"name": "New MG ZS",
-				"type": "SUV",
-				"img": "/images/cars/car-new-mg-zs-white.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			},
-			{
-				"name": "New MG ZX Excite",
-				"type": "Hatchback",
-				"img": "/images/cars/car-mg-zx-excite.png",
-				"details": {
-					"gasoline": 90,
-					"steering": "Manual",
-					"capacity": 4
-				},
-				"price": 74.0,
-				"discountPrice": null
-			},
-			{
-				"name": "New MG ZS",
-				"type": "SUV",
-				"img": "/images/cars/car-new-mg-zs-silver.png",
-				"details": {
-					"gasoline": 80,
-					"steering": "Manual",
-					"capacity": 6
-				},
-				"price": 80.0,
-				"discountPrice": null
-			}
+			"all-new-rush",
+			"cr-v-2",
+			"all-new-terios",
+			"cr-v-1",
+			"mg-zx-exclusive",
+			"new-mg-zs-1",
+			"new-mg-zx-excite",
+			"new-mg-zs-2"
 		]
 	}
 }

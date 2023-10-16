@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import Logo from "./ui/Logo";
-import SearchBar from "./ui/SearchBar";
-import { Heart, Notification, Setting2 } from "iconsax-react";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import Logo from "@/components/ui/Logo";
+import SearchBar from "@/components/ui/SearchBar";
+import { HambergerMenu, Heart, Notification, Setting2 } from "iconsax-react";
+import { ButtonHTMLAttributes, FormEvent } from "react";
+import { useSidebar } from "@/contexts/SidebarContext";
 
 interface RoundedButtonIconProps {
 	icon: "heart" | "notification" | "setting";
@@ -16,7 +19,7 @@ const RoundedButtonIcon = ({ icon, type }: RoundedButtonIconProps) => {
 		) : icon === "notification" ? (
 			<>
 				<Notification variant="Bold" />
-				<span className="absolute top-0 right-0 bg-error p-2 rounded-full"></span>
+				<span className="absolute top-0 right-0 p-2 rounded-full bg-error"></span>
 			</>
 		) : (
 			<Setting2 variant="Bold" />
@@ -35,7 +38,13 @@ const RoundedButtonIcon = ({ icon, type }: RoundedButtonIconProps) => {
 	);
 };
 
-const Navbar = () => {
+const Navbar = ({
+	showHamburgerMenu = false,
+}: {
+	showHamburgerMenu?: boolean | undefined;
+}) => {
+	const { toggleOpen } = useSidebar();
+
 	const buttonIcons: RoundedButtonIconProps["icon"][] = [
 		"setting",
 		"notification",
@@ -47,8 +56,23 @@ const Navbar = () => {
 			<div className="relative flex flex-col gap-8 py-8 mx-auto md:static max-w-app-max-content-margin md:block md:py-10">
 				{/* Top */}
 				<div className="flex items-center justify-between mx-mobile md:mx-tablet md:gap-8">
-					<div className="md:flex md:items-center md:gap-8 md:flex-grow">
-						<Logo />
+					<div className="md:flex md:items-center md:gap-16 md:flex-grow">
+						{/* Logo or hamburger menu */}
+						{showHamburgerMenu ? (
+							<>
+								<button
+									type="button"
+									className="md:hidden"
+									onClick={toggleOpen}
+								>
+									<HambergerMenu />
+								</button>
+
+								<Logo className="hidden md:block" />
+							</>
+						) : (
+							<Logo />
+						)}
 
 						{/* Hidden on mobile */}
 						<SearchBar
@@ -57,7 +81,7 @@ const Navbar = () => {
 						/>
 					</div>
 
-					<div className="flex flex-row-reverse gap-4 items-center">
+					<div className="flex flex-row-reverse items-center gap-4">
 						{/* Profile Picture */}
 						<button type="button">
 							<Image
@@ -70,7 +94,7 @@ const Navbar = () => {
 						</button>
 
 						{/* Icons */}
-						<ul className="hidden md:flex md:flex-row-reverse gap-4">
+						<ul className="hidden gap-4 md:flex md:flex-row-reverse">
 							{buttonIcons.map((icon, index) => {
 								return (
 									<li key={index}>
@@ -84,6 +108,10 @@ const Navbar = () => {
 						</ul>
 					</div>
 				</div>
+
+				{showHamburgerMenu ? (
+					<Logo className="inline-block w-max md:hidden mx-mobile md:mx-tablet" />
+				) : null}
 
 				{/* Hidden starts on Tablet (min-width: 768px) */}
 				<SearchBar

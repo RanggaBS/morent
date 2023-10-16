@@ -5,6 +5,16 @@ const nextConfig = {
 			transform: ""
 		}
 	} */
+	/* async redirects() {
+		return [
+			{
+				// redirect user jika pergi ke "/api"
+				source: "/api",
+				destination: "/",
+				permanent: true,
+			},
+		];
+	}, */
 };
 
 module.exports = nextConfig;

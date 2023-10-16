@@ -1,11 +1,12 @@
 import HeroCards from "@/app/HeroCards";
 import Link from "next/link";
 import data from "@/data.json";
-import { CardPropsWithoutDirection } from "@/components/Card";
+import { CardPropsWithoutDirection } from "@/components/client/Card";
 import SwiperCardList from "@/components/client/SwiperCardList";
-import { shuffleArray } from "@/utils";
+import { getCarById, shuffleArray } from "@/utils";
 import { PickUpDropOffGroup } from "@/components/PickUpDropOff";
-import CardList from "../components/client/CardList";
+import CardList from "@/components/client/CardList";
+import Navbar from "@/components/Navbar";
 
 // Hero section
 const Hero = () => {
@@ -21,9 +22,12 @@ const Hero = () => {
 };
 
 const PopularCar = () => {
-	const shuffledData = shuffleArray(
-		data.category.popular
-	) as CardPropsWithoutDirection[];
+	const cars: CardPropsWithoutDirection[] = [];
+	data.category.popular.forEach(id => {
+		cars.push(getCarById(id) as CardPropsWithoutDirection);
+	});
+
+	const shuffledCarList = shuffleArray(cars) as CardPropsWithoutDirection[];
 
 	return (
 		<section>
@@ -39,41 +43,52 @@ const PopularCar = () => {
 					</Link>
 				</div>
 
-				<SwiperCardList data={shuffledData} />
+				<SwiperCardList data={shuffledCarList} />
 			</div>
 		</section>
 	);
 };
 
 // Homepage
-const HomePage = () => {
+const Page = () => {
+	const cars: CardPropsWithoutDirection[] = [];
+	data.category.recommendation.forEach(id => {
+		cars.push(getCarById(id) as CardPropsWithoutDirection);
+	});
+
+	const shuffledCarList = shuffleArray(cars) as CardPropsWithoutDirection[];
+
 	return (
-		<main>
-			<div className="mx-auto max-w-app-max-content-margin">
-				<Hero />
+		<>
+			<Navbar showHamburgerMenu={false} />
 
-				<PopularCar />
+			<main>
+				<div className="mx-auto max-w-app-max-content-margin">
+					<Hero />
 
-				<div>
-					<h2
-						id="recomendation"
-						className="pb-4 text-sm font-semibold"
-					>
-						Recomendation Car
-					</h2>
+					<PopularCar />
 
-					<CardList
-						data={
-							shuffleArray(
-								data.category.recommendation
-							) as CardPropsWithoutDirection[]
-						}
-						showMore={true}
-					/>
+					<section>
+						<h2
+							id="recomendation"
+							className="pb-4 text-sm font-semibold mx-mobile md:mx-tablet"
+						>
+							Recomendation Car
+						</h2>
+
+						<CardList
+							data={
+								shuffleArray(
+									shuffledCarList
+								) as CardPropsWithoutDirection[]
+							}
+							showMore={true}
+						/>
+					</section>
 				</div>
-			</div>
-		</main>
+			</main>
+		</>
 	);
 };
 
-export default HomePage;
+export default Page;

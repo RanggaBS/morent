@@ -1,6 +1,6 @@
 "use client";
 
-import Card, { CardPropsWithoutDirection } from "@/components/Card";
+import Card, { CardPropsWithoutDirection } from "@/components/client/Card";
 import Button from "@/components/ui/Button";
 import useDeviceType from "@/hooks/useDeviceType";
 import useViewportSize from "@/hooks/useViewportSize";

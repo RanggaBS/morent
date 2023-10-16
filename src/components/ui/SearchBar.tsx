@@ -1,17 +1,32 @@
 import { SearchNormal1, Setting4 } from "iconsax-react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
 
 type SearchBarProps = {
 	variant?: "split" | "group";
-	onSubmit?: () => void | undefined;
 	className?: string | undefined;
 };
 
-const SearchBar = ({
-	variant = "split",
-	onSubmit,
-	className,
-}: SearchBarProps) => {
+const SearchBar = ({ variant = "split", className }: SearchBarProps) => {
+	const router = useRouter();
+
+	const [inputSearch, setInputSearch] = useState("");
+
+	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		if (inputSearch || inputSearch.length >= 1) {
+			// redirect
+			// if (inputSearch.length >= 3) {
+			router.push(`/cars?search=${inputSearch}`);
+			// } else {
+			// alert("Minimal 3 huruf!");
+			// }
+		} else if (inputSearch.length <= 0) {
+			router.push("/cars");
+		}
+	};
+
 	return variant === "split" ? (
 		<div className={"flex gap-4" + (className ? " " + className : "")}>
 			{/* variant = "split" */}
@@ -22,7 +37,7 @@ const SearchBar = ({
 				className={
 					"flex items-center flex-grow rounded-lg ring-1 ring-secondary-200 ring-inset"
 				}
-				onSubmit={onSubmit}
+				onSubmit={handleSubmit}
 			>
 				<button
 					type="submit"
@@ -37,6 +52,8 @@ const SearchBar = ({
 					id="search"
 					placeholder="Search something here"
 					className="w-full h-full text-sm bg-transparent"
+					onChange={event => setInputSearch(event.target.value)}
+					value={inputSearch}
 				/>
 			</form>
 
@@ -61,7 +78,7 @@ const SearchBar = ({
 				action=""
 				method="get"
 				className="flex items-center flex-1 rounded-l-full"
-				onSubmit={onSubmit}
+				onSubmit={handleSubmit}
 			>
 				<button
 					type="submit"
@@ -76,6 +93,8 @@ const SearchBar = ({
 					id="search"
 					placeholder="Search something here"
 					className="w-full h-full text-sm bg-transparent"
+					onChange={event => setInputSearch(event.target.value)}
+					value={inputSearch}
 				/>
 			</form>
 

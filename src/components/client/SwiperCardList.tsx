@@ -1,6 +1,6 @@
 "use client";
 
-import Card, { CardPropsWithoutDirection } from "@/components/Card";
+import Card, { CardPropsWithoutDirection } from "@/components/client/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // type TCarDetails = CardProps["details"];

@@ -16,6 +16,7 @@ const config: Config = {
 				"app-max-content": "1312px",
 				"app-max-content-margin":
 					"1376px" /* 1312 + (max margin (2rem) * 2) */,
+				sidebar: "360px",
 			},
 			backgroundImage: {
 				"circular-pattern":
