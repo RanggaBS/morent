@@ -15,6 +15,9 @@ const nextConfig = {
 			},
 		];
 	}, */
+	images: {
+		domains: ["morent-vert.vercell.app"],
+	},
 };
 
 module.exports = nextConfig;
