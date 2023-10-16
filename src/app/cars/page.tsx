@@ -7,7 +7,7 @@ import Sidebar, {
 	SidebarInputRangeItem,
 	SidebarSection,
 } from "@/components/Sidebar";
-import CardList from "@/components/client/CardList";
+// import CardList from "@/components/client/CardList";
 import { SidebarProvider } from "@/contexts/SidebarContext";
 import { getURL, ICar, objToQueryParam } from "@/utils";
 import { useSearchParams } from "next/navigation";
@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 
 const fetchCars = async (encodedQueryParam: string) => {
 	const apiEndpoint = getURL(`/api/cars?${encodedQueryParam}`);
-	console.log(apiEndpoint);
+	console.log("apiEndpoint = ", apiEndpoint);
 	let responseObj: { ok: boolean; data: any } = { ok: false, data: null };
 	try {
 		const response = await fetch(apiEndpoint);
@@ -28,11 +28,12 @@ const fetchCars = async (encodedQueryParam: string) => {
 			/* return (
 				<p className="text-2xl text-error-500">{response.statusText}</p>
 			); */
-			console.error(response.statusText);
+			console.log("response = ", response);
+			// console.error(response.statusText);
 			return responseObj;
 		}
 	} catch (error) {
-		console.error(error);
+		console.log("error = ", error);
 	}
 };
 
