@@ -44,11 +44,11 @@ export const GET = async (request: Request) => {
 
 	return new Response(JSON.stringify(data), {
 		status: 200,
-		headers: {
+		/* headers: {
 			"Access-Control-Allow-Origin": "https://morent-vert.vercell.app",
 			"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
 			"Access-Control-Allow-Headers": "Content-Type, Authorization",
-		},
+		}, */
 	});
 
 	/*
